@@ -1,5 +1,5 @@
 # shakespeare.org
-An emacs org-mode file of the [collected plays of Shakespeare](./shakespeare.org).
+A single, simple, but very large [emacs org-mode](https://orgmode.org) file of the [collected plays of Shakespeare](./shakespeare.org).
 
 Buffer has:
   - 32,097 headings
