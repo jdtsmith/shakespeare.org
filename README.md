@@ -3,7 +3,7 @@ A single, simple, but very large [emacs org-mode](https://orgmode.org) file of t
 
 Buffer has:
   - 32,097 headings
-  - 14,7606 lines
+  - 147,606 lines
   - 906,420 words
   - 5,358,505 characters
 
