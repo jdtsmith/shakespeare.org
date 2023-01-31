@@ -2,10 +2,10 @@
 An emacs org-mode file of the [collected plays of Shakespeare](./shakespeare.org).
 
 Buffer has:
-  - 32097 headings
-  - 147606 lines
-  - 906420 words
-  - 5358505 characters
+  - 32,097 headings
+  - 14,7606 lines
+  - 906,420 words
+  - 5,358,505 characters
 
 Useful for testing. 
 
