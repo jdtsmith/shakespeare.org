@@ -7,3 +7,5 @@ Buffer has:
   - 5358505 characters
 
 Useful for testing. 
+
+Credits: [shakespeare-material]([url](https://github.com/okfn/shakespeare-material))
