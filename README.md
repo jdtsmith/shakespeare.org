@@ -1,5 +1,5 @@
 # shakespeare.org
-An emacs org-mode file of the collected works of Shakespeare:
+An emacs org-mode file of the collected plays of Shakespeare:
 
 Buffer has:
   - 147606 lines
