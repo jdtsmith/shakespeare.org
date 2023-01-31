@@ -9,4 +9,4 @@ Buffer has:
 
 Useful for testing. 
 
-Credits: [shakespeare-material]([url](https://github.com/okfn/shakespeare-material))
+Credits: [shakespeare-material](https://github.com/okfn/shakespeare-material)
