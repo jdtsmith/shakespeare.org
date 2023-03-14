@@ -9,6 +9,12 @@ from xml.sax.handler import ContentHandler
 from xml.sax import parse
 import sys
 import re
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--tags','-t', action='store_true')
+parser.add_argument('files', nargs='+')
+args = parser.parse_args()
 
 
 class Shk2Org(ContentHandler):
@@ -65,9 +71,12 @@ class Shk2Org(ContentHandler):
             print("   : " + content)
         elif inBlock == 'TITLE':
             c = "*" + content + "*"
-            t = self.tag
-            pad = 70-len(c)-len(self.block)-2
-            print(f"{c}{' '*pad}:{t}")
+            if args.tags:
+                t = self.tag
+                pad = 70-len(c)-len(self.block)-2
+                print(f"{c}{' '*pad}:{t}")
+            else:
+                print(c)
         elif inBlock == 'SPEAKER':
             print(content)
         elif inBlock == 'SUBHEAD':
@@ -79,5 +88,5 @@ class Shk2Org(ContentHandler):
 
 
 parser = Shk2Org()
-for file in sys.argv[1:]:
+for file in args.files:
     parse(file, parser)

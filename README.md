@@ -8,7 +8,7 @@ This file has:
   - 1,019 nested tags
   - 5,399,120 characters
 
-Useful for testing. 
+Useful for testing.  See also the `_notags` file for a version without tags.
 
 ![image](https://user-images.githubusercontent.com/93749/225081452-f96fc8ae-d03a-4d18-9cbf-0fef4b8ca698.png)
 
