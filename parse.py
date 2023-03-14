@@ -13,9 +13,9 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--tags','-t', action='store_true')
+parser.add_argument('--max-nesting','-m', default=99, type=int)
 parser.add_argument('files', nargs='+')
 args = parser.parse_args()
-
 
 class Shk2Org(ContentHandler):
     headline = ("PLAY", "FM", "PERSONAE", "SPEECH", "ACT", "SCENE",
@@ -31,7 +31,9 @@ class Shk2Org(ContentHandler):
         self.block.append(name)
         self.content = ''
         if name in self.headline:
-            print('*' * len(self.block), end=' ')
+            depth = len(self.block)
+            if depth <= args.max_nesting:
+                print('*' * len(self.block), end=' ')
             self.tag = name
             if name in self.headline_verbatim:
                 print(name.lstrip())
@@ -71,12 +73,15 @@ class Shk2Org(ContentHandler):
             print("   : " + content)
         elif inBlock == 'TITLE':
             c = "*" + content + "*"
-            if args.tags:
-                t = self.tag
-                pad = 70-len(c)-len(self.block)-2
-                print(f"{c}{' '*pad}:{t}")
-            else:
+            if len(self.block) > args.max_nesting + 1:
                 print(c)
+            else :
+                if args.tags:
+                    t = self.tag
+                    pad = 70-len(c)-len(self.block)-2
+                    print(f"{c}{' '*pad}:{t}")
+                else:
+                    print(c)
         elif inBlock == 'SPEAKER':
             print(content)
         elif inBlock == 'SUBHEAD':
