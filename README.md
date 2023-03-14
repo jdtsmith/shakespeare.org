@@ -1,7 +1,7 @@
 # shakespeare.org
 A single, simple, but very large [emacs org-mode](https://orgmode.org) file of the [collected plays of Shakespeare](./shakespeare.org).
 
-Buffer has:
+This file has:
   - 32,120 headings
   - 147,582 lines
   - 946,282 words
@@ -9,11 +9,11 @@ Buffer has:
 
 Useful for testing. 
 
-<img width="597" alt="image" src="https://user-images.githubusercontent.com/93749/215841990-39f48303-9317-4116-91fa-74c932dc311b.png">
+![image](https://user-images.githubusercontent.com/93749/225081452-f96fc8ae-d03a-4d18-9cbf-0fef4b8ca698.png)
 
 ## Updates
 
-Mar, 2023: Added keywords for all _titles_ (`:PLAY`, `:ACT`, `:SCENE`, etc.).  Add separate headings for `INDUCT`, `INDUCTION`, `PROLOGUE`, `EPILOGUE`, `SUBTITLE`.
+**Mar, 2023**: Added keywords for all _titles_ (`:PLAY`, `:ACT`, `:SCENE`, etc.).  Add separate headings for `INDUCT`, `INDUCTION`, `PROLOGUE`, `EPILOGUE`, `SUBTITLE`.
 
 ## Credits
 
