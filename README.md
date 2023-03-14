@@ -5,6 +5,7 @@ This file has:
   - 32,120 headings
   - 147,582 lines
   - 946,282 words
+  - 1,019 nested tags
   - 5,399,120 characters
 
 Useful for testing. 
@@ -13,7 +14,7 @@ Useful for testing.
 
 ## Updates
 
-**Mar, 2023**: Added keywords for all _titles_ (`:PLAY`, `:ACT`, `:SCENE`, etc.).  Add separate headings for `INDUCT`, `INDUCTION`, `PROLOGUE`, `EPILOGUE`, `SUBTITLE`.
+**Mar, 2023**: Added tags for all _titles_ (`:PLAY`, `:ACT`, `:SCENE`, etc.).  Add separate headings for `INDUCT`, `INDUCTION`, `PROLOGUE`, `EPILOGUE`, `SUBTITLE`.
 
 ## Credits
 
