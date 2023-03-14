@@ -12,18 +12,21 @@ import re
 
 
 class Shk2Org(ContentHandler):
-    headline = ("PLAY", "FM", "PERSONAE", "SPEECH", "ACT", "SCENE", "SCNDESCR")
+    headline = ("PLAY", "FM", "PERSONAE", "SPEECH", "ACT", "SCENE",
+                "SCNDESCR","INDUCT","INDUCTION","PROLOGUE","EPILOGUE","SUBTITLE")
     headline_verbatim = ("FM")
-    drawer = ("SPEAKER")
-    org_list = ("PERSONA")
+    #drawer = ("SPEAKER")
+    #org_list = ("PERSONA")
     block = []
     content = ''
-
+    tag = None
+    
     def startElement(self, name, _attrs):
         self.block.append(name)
         self.content = ''
         if name in self.headline:
             print('*' * len(self.block), end=' ')
+            self.tag = name
             if name in self.headline_verbatim:
                 print(name.lstrip())
         elif name == "PGROUP":
@@ -61,7 +64,10 @@ class Shk2Org(ContentHandler):
         elif inBlock == 'GRPDESCR':
             print("   : " + content)
         elif inBlock == 'TITLE':
-            print("*" + content + "*")
+            c = "*" + content + "*"
+            t = self.tag
+            pad = 70-len(c)-len(self.block)-2
+            print(f"{c}{' '*pad}:{t}")
         elif inBlock == 'SPEAKER':
             print(content)
         elif inBlock == 'SUBHEAD':
