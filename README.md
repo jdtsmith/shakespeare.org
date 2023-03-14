@@ -14,8 +14,8 @@ Useful for performance and other testing of org.
 
 ## Variants
 
-- default: full (4 level) nesting, with tags
-- `_depthN`: headling nesting limited to a maximum depth of `N`
+- default: full (4-level) nesting, with tags
+- `_depthN`: headline nesting limited to a maximum depth of `N`
 - `_notags`: tags omitted
 
 ## Updates
