@@ -9,11 +9,14 @@ from xml.sax.handler import ContentHandler
 from xml.sax import parse
 import sys
 import re
+import random
 import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--tags','-t', action='store_true')
 parser.add_argument('--max-nesting','-m', default=99, type=int)
+parser.add_argument('--stats','-s', action='store_true')
+parser.add_argument('--todo','-d', action='store_true')
 parser.add_argument('files', nargs='+')
 args = parser.parse_args()
 
@@ -34,11 +37,17 @@ class Shk2Org(ContentHandler):
             depth = len(self.block)
             if depth <= args.max_nesting:
                 print('*' * len(self.block), end=' ')
+                if args.todo and depth > 1:
+                    print('TODO' if random.randint(0, 1) else 'DONE', end=' ')
             self.tag = name
             if name in self.headline_verbatim:
                 print(name.lstrip())
         elif name == "PGROUP":
-            print(" - GROUP")
+            if args.stats:
+                stat = "[/]" if random.randint(0, 1) else "[%]"
+            else:
+                stat = " "
+            print(" - GROUP", stat)
         elif name not in ("TITLE", "P", "PERSONA", "GRPDESCR",
                           "STAGEDIR", "PLAYSUBT", "LINE", "SPEAKER", "SUBHEAD"):
             print("UB: ", name)
@@ -51,9 +60,11 @@ class Shk2Org(ContentHandler):
 
         if name == 'PERSONA':
             if self.block[-1] == 'PGROUP':
-                list_start = "   + "
+                list_start = "   +"
             else:
                 list_start = " -"
+            if args.stats:
+                list_start += " [" + ("X" if random.randint(0,1) else " ") + "]"
             print(list_start, self.content)
         elif name == 'STAGEDIR':
             print(" : Stage Direction - ", self.content.strip())
@@ -73,13 +84,16 @@ class Shk2Org(ContentHandler):
             print("   : " + content)
         elif inBlock == 'TITLE':
             c = "*" + content + "*"
+            if (args.stats and
+                len(self.block) > 1 and len(self.block) <= args.max_nesting):
+                c += " [%] " if random.randint(0, 1) else " [/] "
             if len(self.block) > args.max_nesting + 1:
                 print(c)
             else :
                 if args.tags:
                     t = self.tag
-                    pad = 70-len(c)-len(self.block)-2
-                    print(f"{c}{' '*pad}:{t}")
+                    #pad = 70-len(c)-len(self.block)-2
+                    print(f"{c} :{t}:")
                 else:
                     print(c)
         elif inBlock == 'SPEAKER':
