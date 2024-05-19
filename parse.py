@@ -16,6 +16,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--tags','-t', action='store_true')
 parser.add_argument('--max-nesting','-m', default=99, type=int)
 parser.add_argument('--stats','-s', action='store_true')
+parser.add_argument('--checkboxes','-c', action='store_true')
 parser.add_argument('--todo','-d', action='store_true')
 parser.add_argument('files', nargs='+')
 args = parser.parse_args()
@@ -43,7 +44,7 @@ class Shk2Org(ContentHandler):
             if name in self.headline_verbatim:
                 print(name.lstrip())
         elif name == "PGROUP":
-            if args.stats:
+            if args.stats and args.checkboxes:
                 stat = "[/]" if random.randint(0, 1) else "[%]"
             else:
                 stat = " "
@@ -63,7 +64,7 @@ class Shk2Org(ContentHandler):
                 list_start = "   +"
             else:
                 list_start = " -"
-            if args.stats:
+            if args.checkboxes:
                 list_start += " [" + ("X" if random.randint(0,1) else " ") + "]"
             print(list_start, self.content)
         elif name == 'STAGEDIR':
@@ -85,6 +86,7 @@ class Shk2Org(ContentHandler):
         elif inBlock == 'TITLE':
             c = "*" + content + "*"
             if (args.stats and
+                (args.checkboxes or not self.tag == "PERSONAE") and
                 len(self.block) > 1 and len(self.block) <= args.max_nesting):
                 c += " [%] " if random.randint(0, 1) else " [/] "
             if len(self.block) > args.max_nesting + 1:
