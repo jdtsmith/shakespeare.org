@@ -13,7 +13,7 @@ Useful for performance and other testing of org.
 
 Additional files include shallower headline nesting, `TODO`/`DONE` keywords, and list and heading statistics. 
 
-![image](https://user-images.githubusercontent.com/93749/225081452-f96fc8ae-d03a-4d18-9cbf-0fef4b8ca698.png)
+<img width="660" alt="image" src="https://github.com/jdtsmith/shakespeare.org/assets/93749/07c093f5-4bdf-4019-a191-86b64d4fea45">
 
 ## Variants
 
