@@ -1,4 +1,5 @@
 # shakespeare.org
+
 A collection of simple but very large [emacs org-mode](https://orgmode.org) files each comprised of the [collected plays of Shakespeare](./shakespeare.org).
 
 The basic version has:
@@ -10,6 +11,8 @@ The basic version has:
 
 Useful for performance and other testing of org.
 
+Additional files include shallower headline nesting, `TODO`/`DONE` keywords, and list and heading statistics. 
+
 ![image](https://user-images.githubusercontent.com/93749/225081452-f96fc8ae-d03a-4d18-9cbf-0fef4b8ca698.png)
 
 ## Variants
@@ -17,8 +20,15 @@ Useful for performance and other testing of org.
 - default: full (4-level) nesting, with tags
 - `_depthN`: headline nesting limited to a maximum depth of `N`
 - `_notags`: tags omitted
+- `_todo`: include random `TODO`/`DONE` keywords on headings
+- `_stats`: include `[/]` or `[%]` statistics markers on relevant headings and lists
+- `_checkboxes`: include list checkboxes `[X]`, with random completion
 
 ## Updates
+
+### **May, 2024**
+
+- Added `--todo`,  `--stats`, and `--checkboxes` options, and associated files.
 
 ### **Mar, 2023**
 
