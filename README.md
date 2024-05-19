@@ -1,7 +1,7 @@
 # shakespeare.org
 A collection of simple but very large [emacs org-mode](https://orgmode.org) files each comprised of the [collected plays of Shakespeare](./shakespeare.org).
 
-This default version has:
+The basic version has:
   - 32,120 headings
   - 147,582 lines
   - 946,282 words
@@ -23,7 +23,7 @@ Useful for performance and other testing of org.
 ### **Mar, 2023**
 
 - Added tags for all _titles_ (`:PLAY`, `:ACT`, `:SCENE`, etc.)
-- Add separate headings for `INDUCT`, `INDUCTION`, `PROLOGUE`, `EPILOGUE`, `SUBTITLE1
+- Add separate headings for `INDUCT`, `INDUCTION`, `PROLOGUE`, `EPILOGUE`, `SUBTITLE1`
 - Added `_notags` and `_depthN` variants
 
 ## Credits
